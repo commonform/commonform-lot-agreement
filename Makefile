@@ -5,11 +5,12 @@ all: agreement.docx agreement.pdf
 $(COMMONFORM):
 	npm i --save commonform-cli
 
-agreement.docx: agreement.commonform $(COMMONFORM)
+agreement.docx: agreement.commonform signatures.json $(COMMONFORM)
 	$(COMMONFORM) render \
-		-f docx \
-		-n ase \
-		-t "License Effective on Triggering Event (LOT) Agreement" \
+		--format docx \
+		--signatures ./signatures.json \
+		--number ase \
+		--title "License Effective on Triggering Event (LOT) Agreement" \
 		< $< > $@
 
 agreement.pdf: agreement.docx
