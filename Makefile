@@ -9,7 +9,7 @@ agreement.docx: agreement.commonform $(COMMONFORM)
 	$(COMMONFORM) render \
 		-f docx \
 		-n outline \
-		-t "LOT Agreement" \
+		-t "License Effective on Triggering Event (LOT) Agreement" \
 		< $< > $@
 
 agreement.pdf: agreement.docx
